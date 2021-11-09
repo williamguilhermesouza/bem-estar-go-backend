@@ -1,4 +1,4 @@
-package users
+package patients
 
 import (
 	"github.com/gofiber/fiber/v2"
@@ -6,11 +6,11 @@ import (
 	"github.com/williamguilhermesouza/bem-estar-go-backend/models"
 )
 
-func Create(c *fiber.Ctx) error {
-	user := models.User{}
-	c.BodyParser(&user)
+func Update(c *fiber.Ctx) error {
+	patient := models.Patient{}
+	c.BodyParser(&patient)
 	db := database.ConnectToDb()
-	db.Table("user")
-	db.Create(&user)
-	return c.JSON(map[string]models.User{"user": user})
+	db.Table("patient")
+	db.Save(&patient)
+	return c.JSON(map[string]models.Patient{"patient": patient})
 }

@@ -1,4 +1,4 @@
-package users
+package patients
 
 import (
 	"github.com/gofiber/fiber/v2"
@@ -7,10 +7,15 @@ import (
 )
 
 func Create(c *fiber.Ctx) error {
-	user := models.User{}
-	c.BodyParser(&user)
+	patient := models.Patient{}
+
+	c.BodyParser(&patient)
+
 	db := database.ConnectToDb()
-	db.Table("user")
-	db.Create(&user)
-	return c.JSON(map[string]models.User{"user": user})
+
+	db.Table("patient")
+
+	db.Create(&patient)
+
+	return c.JSON(map[string]models.Patient{"patient": patient})
 }
