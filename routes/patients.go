@@ -8,4 +8,8 @@ import (
 func Patients(app *fiber.App) {
 	// users routes
 	app.Get("/patients", patients.List)
+	app.Get("/patients/:id", patients.FindOne)
+	app.Post("/patients", patients.Create)
+	app.Patch("/patients/:id", patients.Update)
+	app.Delete("/patients/:id", patients.Delete)
 }

@@ -8,9 +8,12 @@ import (
 
 func Update(c *fiber.Ctx) error {
 	patient := models.Patient{}
+	originalPatient := models.Patient{}
 	c.BodyParser(&patient)
+	id := c.Params("id")
 	db := database.ConnectToDb()
 	db.Table("patient")
-	db.Save(&patient)
-	return c.JSON(map[string]models.Patient{"patient": patient})
+	db.First(&originalPatient, id)
+	db.Model(&originalPatient).Updates(&patient)
+	return c.JSON(map[string]models.Patient{"patient": originalPatient})
 }
