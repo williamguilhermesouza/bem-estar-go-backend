@@ -21,8 +21,8 @@ type Patient struct {
 	Scholarship    string
 	Profession     string
 	PlaceOfBirth   string `gorm:"column:placeOfBirth"`
-	weight         float32
-	height         float32
+	Weight         float32
+	Height         float32
 	CreatedAt      time.Time `gorm:"column:createdAt"`
 	UpdatedAt      time.Time `gorm:"column:updatedAt"`
 }
