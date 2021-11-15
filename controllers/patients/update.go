@@ -15,5 +15,5 @@ func Update(c *fiber.Ctx) error {
 	db.Table("patient")
 	db.First(&originalPatient, id)
 	db.Model(&originalPatient).Updates(&patient)
-	return c.JSON(map[string]models.Patient{"patient": originalPatient})
+	return c.JSON(originalPatient)
 }

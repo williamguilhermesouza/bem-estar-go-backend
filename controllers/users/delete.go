@@ -14,5 +14,5 @@ func Delete(c *fiber.Ctx) error {
 	db.Table("user")
 	db.First(&user, id)
 	db.Delete(&models.User{}, id)
-	return c.JSON(map[string]models.User{"user": user})
+	return c.JSON(user)
 }

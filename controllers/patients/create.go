@@ -8,14 +8,9 @@ import (
 
 func Create(c *fiber.Ctx) error {
 	patient := models.Patient{}
-
 	c.BodyParser(&patient)
-
 	db := database.ConnectToDb()
-
 	db.Table("patient")
-
 	db.Create(&patient)
-
-	return c.JSON(map[string]models.Patient{"patient": patient})
+	return c.JSON(patient)
 }

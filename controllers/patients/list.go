@@ -8,12 +8,8 @@ import (
 
 func List(c *fiber.Ctx) error {
 	db := database.ConnectToDb()
-
 	db.Table("patients")
-
 	patient := []models.Patient{}
-
 	db.Find(&patient)
-
-	return c.JSON(map[string][]models.Patient{"patient": patient})
+	return c.JSON(patient)
 }

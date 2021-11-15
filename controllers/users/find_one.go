@@ -13,5 +13,5 @@ func FindOne(c *fiber.Ctx) error {
 	db := database.ConnectToDb()
 	db.Table("user")
 	db.First(&user, id)
-	return c.JSON(map[string]models.User{"user": user})
+	return c.JSON(user)
 }
