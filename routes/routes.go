@@ -11,4 +11,6 @@ func Route(app *fiber.App) {
 	Patients(app)
 	// attendances routes
 	Attendances(app)
+	// movements routes
+	Movements(app)
 }
