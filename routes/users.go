@@ -6,7 +6,6 @@ import (
 )
 
 func Users(app *fiber.App) {
-	// users routes
 	app.Get("/users", users.List)
 	app.Get("/users/:id", users.FindOne)
 	app.Post("/users", users.Create)
