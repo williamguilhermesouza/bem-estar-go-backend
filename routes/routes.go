@@ -13,4 +13,10 @@ func Route(app *fiber.App) {
 	Attendances(app)
 	// movements routes
 	Movements(app)
+	// agenda routes
+	Agenda(app)
+	// evaluations routes
+	Evaluation(app)
+	// rpgs routes
+	Rpg(app)
 }
